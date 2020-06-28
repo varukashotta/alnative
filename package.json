@@ -22,14 +22,17 @@
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
     "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook",
     "clean": "rm -rf ./lib",
     "prebuild": "yarn clean",
     "build": "tsc --build \"./tsconfig.json\"",
     "copy-files": "copyfiles -u 1 src/style/base.css lib/",
     "postbuild": "yarn run copy-files",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
+    "@storybook/react": "^5.3.19",
     "react": "16.11.0",
     "react-native": "0.62.2"
   },
@@ -43,6 +46,9 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react-native": "^5.3.19",
     "@storybook/react-native-server": "^5.3.19",
+    "@storybook/storybook-deployer": "^2.8.6",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@types/enzyme": "^3.10.5",
     "@types/jest": "^24.0.24",
     "@types/react-native": "^0.62.0",
     "@types/react-test-renderer": "16.9.2",
@@ -52,20 +58,29 @@
     "babel-loader": "^8.1.0",
     "copyfiles": "^2.3.0",
     "cz-conventional-changelog": "3.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^24.9.0",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.5",
-    "react-dom": "16.11.0",
+    "react-dom": "^16.13.1",
     "react-test-renderer": "16.11.0",
-    "typescript": "^3.8.3",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^17.1.1",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "<rootDir>setup-tests.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
