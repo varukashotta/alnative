@@ -29,5 +29,5 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 storiesOf('Onboarding', module)
     .addDecorator(getStory => <View>{getStory()}</View>)
     .add('default', () => (
-        <Onboarding/>
+        <Onboarding data={['test', 'two']}/>
     ))
