@@ -2,8 +2,8 @@ import {mount, shallow} from 'enzyme';
 import React from "react";
 import Onboarding from ".";
 import SlideButtons from "./slideButtons";
-import {FlatList, View} from "react-native";
-import {array} from "@storybook/addon-knobs";
+import {FlatList} from "react-native";
+import Slide from './slide';
 
 describe('Onboarding component', () => {
 
@@ -29,6 +29,7 @@ describe('Onboarding component', () => {
     it('should have data props that is an array', () => {
         expect(Array.isArray(wrapper.prop('data'))).toBeTruthy();
     });
+
 
     describe('Slider Component Capabilities', () => {
 
@@ -63,13 +64,13 @@ describe('Onboarding component', () => {
 
         it('should have renderItem prop to return Slide', () => {
 
-            const mockFunction = jest.fn((point) => shallow(point));
+            const mockFunction = jest.fn((point) => point);
 
-            wrapper.find(FlatList).props('renderItem', mockFunction(<View/>));
+            wrapper.find(FlatList).props('renderItem', mockFunction(<Slide item={{}}/>));
 
              expect(mockFunction).toHaveBeenCalled();
 
-             expect(mockFunction).toHaveReturnedWith({});
+             expect(mockFunction).toHaveReturnedWith(<Slide item={{}}/>);
 
         });
 
@@ -81,17 +82,20 @@ describe('Onboarding component', () => {
             expect(slider.prop('keyExtractor')).toBeInstanceOf(Function);
         });
 
-        // it('should have keyExtractor prop to be function', () => {
-        //     const mockFunction = jest.fn((point) => point.id);
-        //
-        //     slider.props('keyExtractor', mockFunction({item:{id: 1}}));
-        //
-        //     expect(mockFunction).toHaveBeenCalled();
-        //
-        //
-        //
-        // });
     });
+
+    describe('Slide component capabilities', function () {
+        const slideShallow = mount(<Slide item={{}}/>);
+
+        it('should be defined',() => {
+            expect(slideShallow.prop('item')).toBeDefined();
+        })
+
+        it('should have a prop item that is an object', () => {
+            expect(typeof slideShallow.prop('item') === 'object' && slideShallow.prop('item') !== null).toBeTruthy()
+        })
+    });
+
 
     describe('Slide Buttons', () => {
         it('should have show slide button props', () => {

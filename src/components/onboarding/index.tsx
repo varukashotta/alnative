@@ -1,22 +1,22 @@
 import React, {FC} from "react";
 import {Text, FlatList, View} from "react-native";
 import SlideButtons from "./slideButtons";
-import {v4} from 'uuid';
+import Slide from "./slide";
 
 interface IProps {
     data: [{
-        id: string;
         heading?: string;
     }];
     slideButtons: boolean;
 }
 
-const Onboarding: FC<IProps> = ({data = [{id: v4() , heading: 'Heading'}], slideButtons = true}) => {
+const Onboarding: FC<IProps> = ({data = [{ heading: 'Heading'}], slideButtons = true}) => {
+
     return (<View>
             <FlatList
-                keyExtractor={item => item.id}
+                keyExtractor={( index) => index.toString()}
                 horizontal={true}
-                renderItem={({item}) => <View><Text>{item.heading}</Text></View>}
+                renderItem={({item}) => <Slide item={item}/>}
                 data={data}
             />
         {slideButtons && <SlideButtons/>}
