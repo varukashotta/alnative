@@ -1,11 +1,21 @@
 import React, {FC} from 'react';
-import {Container} from "./slide.styles";
+import {Container, SlideButtonsContainer, Heading} from './slide.styles';
+import SlideButtons from "../slideButtons";
 
 interface IProps {
-    item: any
+    item: {
+        heading?: string;
+    };
+    showButtons: boolean;
 }
-const Slide:FC<IProps> = ({item}) => {
-    return <Container />
-}
+// TODO Enable dynamic font props
+
+const Slide: FC<IProps> = ({ showButtons, item: {heading}}) => {
+    return <Container>
+
+        {heading && <Heading>{heading}</Heading>}
+        {showButtons && <SlideButtonsContainer><SlideButtons/></SlideButtonsContainer>}
+    </Container>;
+};
 
 export default Slide;

@@ -1,26 +1,30 @@
-import React, {FC} from "react";
-import {Text, FlatList, View} from "react-native";
-import SlideButtons from "./slideButtons";
-import Slide from "./slide";
+import React, {FC} from 'react';
+import {FlatList, View} from 'react-native';
+import Slide from './slide';
 
 interface IProps {
-    data: [{
-        heading?: string;
-    }];
-    slideButtons: boolean;
+  data: [
+    {
+      heading?: string;
+    },
+  ];
+  slideButtons: boolean;
 }
 
-const Onboarding: FC<IProps> = ({data = [{ heading: 'Heading'}], slideButtons = true}) => {
-
-    return (<View>
-            <FlatList
-                keyExtractor={( index) => index.toString()}
-                horizontal={true}
-                renderItem={({item}) => <Slide item={item}/>}
-                data={data}
-            />
-        {slideButtons && <SlideButtons/>}
-    </View>);
-}
+const Onboarding: FC<IProps> = ({
+  data = [{heading: 'Heading'}],
+  slideButtons = true,
+}) => {
+  return (
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <FlatList
+        keyExtractor={(index) => index.toString()}
+        horizontal={true}
+        renderItem={({item}) => <Slide item={item} showButtons={slideButtons}/>}
+        data={data}
+      />
+    </View>
+  );
+};
 
 export default Onboarding;

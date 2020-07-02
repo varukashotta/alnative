@@ -1,22 +1,30 @@
-import {mount, shallow} from 'enzyme';
-import React from "react";
-import Onboarding from ".";
-import SlideButtons from "./slideButtons";
-import {FlatList} from "react-native";
+import {mount} from 'enzyme';
+import React from 'react';
+import Onboarding from '.';
+import {FlatList} from 'react-native';
 import Slide from './slide';
 
 describe('Onboarding component', () => {
-
     let wrapper: any;
 
     let slider: any;
 
+    let slideShallow: any;
+
+    let slide: any;
+
     beforeEach(() => {
-        wrapper = mount(<Onboarding slideButtons={true} data={[{heading: 'Heading'}]}/>);
+        wrapper = mount(
+            <Onboarding slideButtons={true} data={[{heading: 'Heading'}]}/>,
+        );
 
         slider = wrapper.find(FlatList);
 
-    })
+        slide = <Slide item={{}} showButtons={true}/>;
+
+        slideShallow = mount(slide);
+
+    });
 
     it('should render without issues', () => {
         expect(wrapper.length).toBe(1);
@@ -30,9 +38,19 @@ describe('Onboarding component', () => {
         expect(Array.isArray(wrapper.prop('data'))).toBeTruthy();
     });
 
+    it('should have data array of objects', () => {
+        expect(wrapper.prop('data').map(item => typeof item === 'object')).toBeTruthy();
+    })
+
+    it('should have data prop with array objects that have a header if type string', () => {
+        expect(wrapper.prop('data').filter(item => 'heading' in item && typeof item.heading === 'string').length).toBeGreaterThanOrEqual(wrapper.prop('data').length);
+    })
+
+    // it('should have data array of objects', () => {
+    //     expect(wrapper.prop('data').filter(item => item.heading === 'string' && item.content === 'string')).toEqual(wrapper.prop('data').length);
+    // })
 
     describe('Slider Component Capabilities', () => {
-
         it('should have FlatList Component as child component', () => {
             expect(wrapper.find(FlatList).length).toEqual(1);
         });
@@ -41,7 +59,7 @@ describe('Onboarding component', () => {
             expect(slider.prop('horizontal')).toBeDefined();
         });
 
-        it('should have horizontal prop', () => {
+        it('should have horizontal prop that is equal to true', () => {
             expect(slider.prop('horizontal')).toBeTruthy();
         });
 
@@ -50,7 +68,6 @@ describe('Onboarding component', () => {
         });
 
         it('should have data prop that is an array', () => {
-
             expect(Array.isArray(slider.prop('data'))).toBeTruthy();
         });
 
@@ -63,15 +80,15 @@ describe('Onboarding component', () => {
         });
 
         it('should have renderItem prop to return Slide', () => {
-
             const mockFunction = jest.fn((point) => point);
 
-            wrapper.find(FlatList).props('renderItem', mockFunction(<Slide item={{}}/>));
+            wrapper
+                .find(FlatList)
+                .props('renderItem', mockFunction(slide));
 
-             expect(mockFunction).toHaveBeenCalled();
+            expect(mockFunction).toHaveBeenCalled();
 
-             expect(mockFunction).toHaveReturnedWith(<Slide item={{}}/>);
-
+            expect(mockFunction).toHaveReturnedWith(slide);
         });
 
         it('should have keyExtractor prop', () => {
@@ -81,35 +98,28 @@ describe('Onboarding component', () => {
         it('should have keyExtractor prop to be function', () => {
             expect(slider.prop('keyExtractor')).toBeInstanceOf(Function);
         });
-
     });
 
     describe('Slide component capabilities', function () {
-        const slideShallow = mount(<Slide item={{}}/>);
 
-        it('should be defined',() => {
+        it('should be defined', () => {
             expect(slideShallow.prop('item')).toBeDefined();
-        })
-
-        it('should have a prop item that is an object', () => {
-            expect(typeof slideShallow.prop('item') === 'object' && slideShallow.prop('item') !== null).toBeTruthy()
-        })
-    });
-
-
-    describe('Slide Buttons', () => {
-        it('should have show slide button props', () => {
-            expect(wrapper.prop('slideButtons')).toBeDefined();
         });
 
-        it('should show slide buttons component if props is true', () => {
-            wrapper.setProps({'slideButtons': true});
+        it('should have a prop item that is an object', () => {
+            expect(
+                typeof slideShallow.prop('item') === 'object' &&
+                slideShallow.prop('item') !== null,
+            ).toBeTruthy();
+        });
 
-            expect(wrapper.find(<SlideButtons/>)).toBeDefined();
+        it('should have a prop showButtons', () => {
+            expect(slideShallow.prop('showButtons')).toBeDefined();
+        });
 
-            expect(wrapper.contains(<SlideButtons/>)).toBeTruthy();
-        })
-    })
-
+        it('should have a prop showButtons', () => {
+            expect(typeof slideShallow.prop('showButtons') === 'boolean').toBeTruthy();
+        });
+    });
 
 });
