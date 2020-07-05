@@ -1,11 +1,13 @@
-import React, {FC} from 'react';
-import {FlatList, View} from 'react-native';
+import React, {FC, useState} from 'react';
+import {FlatList} from 'react-native';
 import Slide from './slide';
+import {Container} from './onboardingStyles';
 
 interface IProps {
   data: [
     {
       heading?: string;
+      text?: string;
     },
   ];
   slideButtons: boolean;
@@ -15,15 +17,31 @@ const Onboarding: FC<IProps> = ({
   data = [{heading: 'Heading'}],
   slideButtons = true,
 }) => {
+
+  const [activeItem, setActiveItem] = useState<number>(0);
+
+  const _getActiveSlide = (e) => {
+    let contentOffset = e.nativeEvent.contentOffset;
+    let viewSize = e.nativeEvent.layoutMeasurement;
+
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    let pageNum = Math.floor(contentOffset.x / viewSize.width);
+    setActiveItem(pageNum);
+    console.log('scrolled to page ', pageNum);
+  }
+
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <Container>
       <FlatList
-        keyExtractor={(index) => index.toString()}
+        keyExtractor={(_item, index) => index.toString()}
         horizontal={true}
-        renderItem={({item}) => <Slide item={item} showButtons={slideButtons}/>}
+        onMomentumScrollEnd={_getActiveSlide}
+        renderItem={({item}) => (
+          <Slide activeSlide={activeItem} numberOfSlides={data.length} item={item} showButtons={slideButtons} />
+        )}
         data={data}
       />
-    </View>
+    </Container>
   );
 };
 

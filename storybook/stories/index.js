@@ -29,5 +29,5 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 storiesOf('Onboarding', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('default', () => (
-        <Onboarding data={[{heading: 'two'}]} slideButtons={true}/>
+        <Onboarding data={[{heading: 'Slide 1', text: 'This is a text area'},{heading: 'Step 2', text: 'This is a text area'}]} slideButtons={true}/>
     ))
