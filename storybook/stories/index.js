@@ -10,6 +10,7 @@ import Onboarding from '../../src/components/onboarding'
 // import Button from './Button';
 import CenterView from './CenterView';
 import Welcome from './Welcome';
+import {onboardingData} from "./generator";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -26,8 +27,10 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 //     </Button>
 //   ));
 
+console.log(onboardingData());
+
 storiesOf('Onboarding', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('default', () => (
-        <Onboarding data={[{heading: 'Slide 1', text: 'This is a text area'},{heading: 'Step 2', text: 'This is a text area'}]} slideButtons={true}/>
+        <Onboarding data={onboardingData()} slideButtons={true}/>
     ))

@@ -1,7 +1,7 @@
 import {mount} from 'enzyme';
 import React from 'react';
 import Onboarding from '.';
-import {FlatList} from 'react-native';
+import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
 
@@ -16,18 +16,36 @@ describe('Onboarding component', () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <Onboarding slideButtons={true} data={[{heading: 'Heading', text: 'Content'}]} />,
+      <Onboarding
+        slideButtons={true}
+        data={[{heading: 'Heading', text: 'Content'}]}
+        statusBar={true}
+      />,
     );
 
     slider = wrapper.find(FlatList);
 
-    slide = <Slide item={{}} showButtons={true} numberOfSlides={3} activeSlide={1}/>;
+    slide = (
+      <Slide item={{}} showButtons={true} numberOfSlides={3} activeSlide={1} />
+    );
 
     slideShallow = mount(slide);
   });
 
   it('should render without issues', () => {
     expect(wrapper.length).toBe(1);
+  });
+
+  it('should have Statusbar prop', () => {
+    expect(wrapper.prop('statusBar')).toBeDefined();
+  });
+
+  it('should have Statusbar component defined', () => {
+    expect(wrapper.contains(StatusBar)).toBeTruthy();
+  });
+
+  it('should have statusBar prop to be boolean', () => {
+    expect(typeof wrapper.prop('statusBar') === 'boolean').toBeTruthy();
   });
 
   it('should have container wrapper as parent', () => {
@@ -59,10 +77,10 @@ describe('Onboarding component', () => {
 
   it('should have data prop with array objects that have a text if type string', () => {
     expect(
-        wrapper
-            .prop('data')
-            .filter((item) => 'text' in item && typeof item.heading === 'string')
-            .length,
+      wrapper
+        .prop('data')
+        .filter((item) => 'text' in item && typeof item.heading === 'string')
+        .length,
     ).toBeGreaterThanOrEqual(wrapper.prop('data').length);
   });
 

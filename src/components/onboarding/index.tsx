@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
 
@@ -10,14 +10,15 @@ interface IProps {
       text?: string;
     },
   ];
+  statusBar?: boolean;
   slideButtons: boolean;
 }
 
 const Onboarding: FC<IProps> = ({
   data = [{heading: 'Heading'}],
   slideButtons = true,
+  statusBar = true,
 }) => {
-
   const [activeItem, setActiveItem] = useState<number>(0);
 
   const _getActiveSlide = (e) => {
@@ -27,18 +28,24 @@ const Onboarding: FC<IProps> = ({
     // Divide the horizontal offset by the width of the view to see which page is visible
     let pageNum = Math.floor(contentOffset.x / viewSize.width);
     setActiveItem(pageNum);
-    console.log('scrolled to page ', pageNum);
-  }
+  };
 
   return (
     <Container>
+      <StatusBar hidden={statusBar} />
       <FlatList
         keyExtractor={(_item, index) => index.toString()}
         horizontal={true}
         onMomentumScrollEnd={_getActiveSlide}
         renderItem={({item}) => (
-          <Slide activeSlide={activeItem} numberOfSlides={data.length} item={item} showButtons={slideButtons} />
+          <Slide
+            activeSlide={activeItem}
+            numberOfSlides={data.length}
+            item={item}
+            showButtons={slideButtons}
+          />
         )}
+        pagingEnabled={true}
         data={data}
       />
     </Container>
