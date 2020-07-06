@@ -1,7 +1,8 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
+import {number} from "@storybook/addon-knobs";
 
 interface IProps {
   data: [
@@ -20,7 +21,7 @@ const Onboarding: FC<IProps> = ({
   statusBar = true,
 }) => {
   const [activeItem, setActiveItem] = useState<number>(0);
-
+  const refFlatList = useRef<any>();
   const _getActiveSlide = (e) => {
     let contentOffset = e.nativeEvent.contentOffset;
     let viewSize = e.nativeEvent.layoutMeasurement;
@@ -30,6 +31,11 @@ const Onboarding: FC<IProps> = ({
     setActiveItem(pageNum);
   };
 
+  const _scrollToIndex = (e) => {
+    console.log(activeItem + 1);
+    return refFlatList.current.scrollToIndex({animated: true, index: e === '-' ? activeItem - 1 : activeItem + 1})
+  }
+
   return (
     <Container>
       <StatusBar hidden={statusBar} />
@@ -37,8 +43,11 @@ const Onboarding: FC<IProps> = ({
         keyExtractor={(_item, index) => index.toString()}
         horizontal={true}
         onMomentumScrollEnd={_getActiveSlide}
+        showsHorizontalScrollIndicator={false}
+        ref={refFlatList}
         renderItem={({item}) => (
           <Slide
+              _navigateToPage={_scrollToIndex}
             activeSlide={activeItem}
             numberOfSlides={data.length}
             item={item}

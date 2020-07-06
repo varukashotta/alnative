@@ -37,11 +37,14 @@ export const NavTitle = styled.TouchableOpacity`
 `;
 
 export const GetStarted = styled.View`
-  background: red;
-  paddingvertical: ${widthPercentageToDP(3)}px;
+  background: lightseagreen;
+  padding-vertical: ${widthPercentageToDP(3)}px;
+  flex: 1;
 `;
 
 export const GetStartedText = styled.Text`
   font-weight: bold;
   font-size: ${widthPercentageToDP(4)}px;
+  text-align: center;
+  color: #fff;
 `;

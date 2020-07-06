@@ -10,9 +10,10 @@ import {
 interface IProps {
   numberOfSlides: number;
   activeSlide: number;
+  _navigateToPage: (param:string) => void;
 }
 
-const SlideButtons: FC<IProps> = ({numberOfSlides, activeSlide}) => {
+const SlideButtons: FC<IProps> = ({numberOfSlides, activeSlide, _navigateToPage}) => {
   const renderButtons = (numberSlides) => {
     let renderedButtons: any[] = [];
 
@@ -22,13 +23,14 @@ const SlideButtons: FC<IProps> = ({numberOfSlides, activeSlide}) => {
     return renderedButtons;
   };
 
+
   return (
     <Container>
-      {activeSlide !== numberOfSlides ? (
+      {(activeSlide + 1) < numberOfSlides ? (
         <Fragment>
-          <NavTitle>{activeSlide > 0 && <NavText>Prev</NavText>}</NavTitle>
+          <NavTitle onPress={() => _navigateToPage('-')}>{activeSlide > 0 && <NavText>Prev</NavText>}</NavTitle>
           <ButtonWrapper>{renderButtons(numberOfSlides)}</ButtonWrapper>
-          <NavTitle>
+          <NavTitle onPress={() => _navigateToPage('+')}>
             <NavText>Next</NavText>
           </NavTitle>
         </Fragment>
