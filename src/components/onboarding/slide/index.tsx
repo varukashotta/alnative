@@ -1,55 +1,38 @@
-import React, {FC} from 'react';
+import React, {FC, Fragment} from 'react';
 import {
   Container,
-  SlideButtonsContainer,
   Heading,
   ContentWrapper,
   Text,
   Image,
 } from './slide.styles';
-import SlideButtons from '../slideButtons';
 
 interface IProps {
   item: {
     heading?: string;
     text?: string;
     image?: string;
+    customElement: React.ReactNode
   };
   headerStyles?: {};
-  showButtons: boolean;
-  numberOfSlides: number;
-  activeSlide: number;
-  _navigateToPage: (e: string) => void;
-  _getStarted: () => void;
 }
 
 // TODO Enable dynamic font props
 
 const Slide: FC<IProps> = ({
-  showButtons,
-  item: {heading, text, image},
+  item: {heading, text, image,customElement = null},
   headerStyles,
-  numberOfSlides,
-  activeSlide,
-  _navigateToPage,
-    _getStarted
+
 }) => {
   return (
     <Container>
+      {customElement ? customElement : <Fragment>
       {image && <Image source={{uri: image}} />}
       <ContentWrapper>
         {heading && <Heading style={headerStyles}>{heading}</Heading>}
         {text && <Text>{text}</Text>}
       </ContentWrapper>
-      {showButtons && (
-        <SlideButtonsContainer>
-          <SlideButtons
-            _navigateToPage={_navigateToPage}
-            numberOfSlides={numberOfSlides}
-            activeSlide={activeSlide}
-           _getStarted={_getStarted}/>
-        </SlideButtonsContainer>
-      )}
+      </Fragment>}
     </Container>
   );
 };

@@ -2,12 +2,16 @@ import React, {FC, useRef, useState} from 'react';
 import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
+import {SlideButtonsContainer} from "./slide/slide.styles";
+import SlideButtons from "./slideButtons";
 
 interface IProps {
   data: [
     {
       heading?: string;
       text?: string;
+      image: string;
+      customElement: React.ReactNode
     },
   ];
   statusBar?: boolean;
@@ -16,7 +20,7 @@ interface IProps {
 }
 
 const Onboarding: FC<IProps> = ({
-  data = [{heading: 'Heading'}],
+  data = [{heading: 'Heading', image: '', customElement: null }],
   slideButtons = true,
   statusBar = true,
     _getStarted
@@ -50,18 +54,20 @@ const Onboarding: FC<IProps> = ({
         showsHorizontalScrollIndicator={false}
         ref={refFlatList}
         renderItem={({item}) => (
-          <Slide
-            _navigateToPage={_scrollToIndex}
-            activeSlide={activeItem}
-            numberOfSlides={data.length}
-            item={item}
-            showButtons={slideButtons}
-            _getStarted={_getStarted}
-          />
+          <Slide item={item} />
         )}
         pagingEnabled={true}
         data={data}
       />
+      {slideButtons && (
+          <SlideButtonsContainer>
+            <SlideButtons
+                _navigateToPage={_scrollToIndex}
+                numberOfSlides={data.length}
+                activeSlide={activeItem}
+                _getStarted={_getStarted}/>
+          </SlideButtonsContainer>
+      )}
     </Container>
   );
 };
