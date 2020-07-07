@@ -2,7 +2,6 @@ import React, {FC, useRef, useState} from 'react';
 import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
-import {number} from "@storybook/addon-knobs";
 
 interface IProps {
   data: [
@@ -13,12 +12,14 @@ interface IProps {
   ];
   statusBar?: boolean;
   slideButtons: boolean;
+  _getStarted: () => void;
 }
 
 const Onboarding: FC<IProps> = ({
   data = [{heading: 'Heading'}],
   slideButtons = true,
   statusBar = true,
+    _getStarted
 }) => {
   const [activeItem, setActiveItem] = useState<number>(0);
   const refFlatList = useRef<any>();
@@ -33,8 +34,11 @@ const Onboarding: FC<IProps> = ({
 
   const _scrollToIndex = (e) => {
     console.log(activeItem + 1);
-    return refFlatList.current.scrollToIndex({animated: true, index: e === '-' ? activeItem - 1 : activeItem + 1})
-  }
+    return refFlatList.current.scrollToIndex({
+      animated: true,
+      index: e === '-' ? activeItem - 1 : activeItem + 1,
+    });
+  };
 
   return (
     <Container>
@@ -47,11 +51,12 @@ const Onboarding: FC<IProps> = ({
         ref={refFlatList}
         renderItem={({item}) => (
           <Slide
-              _navigateToPage={_scrollToIndex}
+            _navigateToPage={_scrollToIndex}
             activeSlide={activeItem}
             numberOfSlides={data.length}
             item={item}
             showButtons={slideButtons}
+            _getStarted={_getStarted}
           />
         )}
         pagingEnabled={true}

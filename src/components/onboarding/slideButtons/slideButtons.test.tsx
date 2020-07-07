@@ -14,7 +14,8 @@ describe('SlideButton component', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<SlideButtons activeSlide={3} numberOfSlides={0} />);
+    const navigate = jest.fn()
+    wrapper = mount(<SlideButtons _getStarted={jest.fn()} _navigateToPage={navigate} activeSlide={3} numberOfSlides={0} />);
   });
 
   it('should exist', () => {
@@ -24,6 +25,14 @@ describe('SlideButton component', () => {
   it('should contain Container', () => {
     expect(wrapper.contains(Container)).toBeDefined();
   });
+
+  it('should have navigateToProps function', () => {
+    expect(wrapper.prop('_navigateToPage')).toBeDefined();
+  })
+
+  it('should have navigateToProps function', () => {
+    expect(typeof wrapper.prop('_navigateToPage') === 'function').toBeTruthy();
+  })
 
   it('should have total slides prop', () => {
     expect(wrapper.prop('numberOfSlides')).toBeDefined();
@@ -57,5 +66,15 @@ describe('SlideButton component', () => {
     it('should have get started text when it is on the last index', () => {
       expect(wrapper.contains(GetStartedText)).toBeDefined();
     });
+  });
+
+  describe('Get started button', () => {
+    it('should have a getStarted prop', () => {
+      expect(wrapper.prop('_getStarted')).toBeDefined();
+    })
+
+    it('should have a getStarted prop to be typeof function', () => {
+      expect(typeof wrapper.prop('_getStarted') === 'function').toBeTruthy();
+    })
   });
 });

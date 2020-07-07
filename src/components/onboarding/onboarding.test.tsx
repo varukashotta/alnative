@@ -20,13 +20,16 @@ describe('Onboarding component', () => {
         slideButtons={true}
         data={[{heading: 'Heading', text: 'Content'}]}
         statusBar={true}
+        _getStarted={jest.fn()}
       />,
     );
 
     slider = wrapper.find(FlatList);
 
+    const navigate = jest.fn();
+
     slide = (
-      <Slide item={{}} showButtons={true} numberOfSlides={3} activeSlide={1} />
+      <Slide _getStarted={jest.fn()} _navigateToPage={navigate} item={{}} showButtons={true} numberOfSlides={3} activeSlide={1} />
     );
 
     slideShallow = mount(slide);
@@ -34,6 +37,24 @@ describe('Onboarding component', () => {
 
   it('should render without issues', () => {
     expect(wrapper.length).toBe(1);
+  });
+
+  it('should have prop navigateToProps', () => {
+    expect(slideShallow.prop('_navigateToPage')).toBeDefined();
+  })
+
+  it('should have prop navigateToProps as function', () => {
+    expect(typeof slideShallow.prop('_navigateToPage') === 'function').toBeTruthy();
+  })
+
+  describe('Get started button', () => {
+    it('should have a getStarted prop', () => {
+      expect(wrapper.prop('_getStarted')).toBeDefined();
+    })
+
+    it('should have a getStarted prop to be typeof function', () => {
+      expect(typeof wrapper.prop('_getStarted') === 'function').toBeTruthy();
+    })
   });
 
   it('should have Statusbar prop', () => {

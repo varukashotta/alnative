@@ -19,7 +19,8 @@ interface IProps {
   showButtons: boolean;
   numberOfSlides: number;
   activeSlide: number;
-  _navigateToPage: (e:string) => void;
+  _navigateToPage: (e: string) => void;
+  _getStarted: () => void;
 }
 
 // TODO Enable dynamic font props
@@ -30,7 +31,8 @@ const Slide: FC<IProps> = ({
   headerStyles,
   numberOfSlides,
   activeSlide,
-    _navigateToPage,
+  _navigateToPage,
+    _getStarted
 }) => {
   return (
     <Container>
@@ -42,10 +44,10 @@ const Slide: FC<IProps> = ({
       {showButtons && (
         <SlideButtonsContainer>
           <SlideButtons
-              _navigateToPage={_navigateToPage}
+            _navigateToPage={_navigateToPage}
             numberOfSlides={numberOfSlides}
             activeSlide={activeSlide}
-          />
+           _getStarted={_getStarted}/>
         </SlideButtonsContainer>
       )}
     </Container>
