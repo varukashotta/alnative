@@ -29,7 +29,14 @@ describe('Onboarding component', () => {
     const navigate = jest.fn();
 
     slide = (
-      <Slide _getStarted={jest.fn()} _navigateToPage={navigate} item={{}} showButtons={true} numberOfSlides={3} activeSlide={1} />
+      <Slide
+        _getStarted={jest.fn()}
+        _navigateToPage={navigate}
+        item={{}}
+        showButtons={true}
+        numberOfSlides={3}
+        activeSlide={1}
+      />
     );
 
     slideShallow = mount(slide);
@@ -41,20 +48,22 @@ describe('Onboarding component', () => {
 
   it('should have prop navigateToProps', () => {
     expect(slideShallow.prop('_navigateToPage')).toBeDefined();
-  })
+  });
 
   it('should have prop navigateToProps as function', () => {
-    expect(typeof slideShallow.prop('_navigateToPage') === 'function').toBeTruthy();
-  })
+    expect(
+      typeof slideShallow.prop('_navigateToPage') === 'function',
+    ).toBeTruthy();
+  });
 
   describe('Get started button', () => {
     it('should have a getStarted prop', () => {
       expect(wrapper.prop('_getStarted')).toBeDefined();
-    })
+    });
 
     it('should have a getStarted prop to be typeof function', () => {
       expect(typeof wrapper.prop('_getStarted') === 'function').toBeTruthy();
-    })
+    });
   });
 
   it('should have Statusbar prop', () => {

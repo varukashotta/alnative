@@ -2,8 +2,8 @@ import React, {FC, useRef, useState} from 'react';
 import {FlatList, StatusBar} from 'react-native';
 import Slide from './slide';
 import {Container} from './onboardingStyles';
-import {SlideButtonsContainer} from "./slide/slide.styles";
-import SlideButtons from "./slideButtons";
+import {SlideButtonsContainer} from './slide/slide.styles';
+import SlideButtons from './slideButtons';
 
 interface IProps {
   data: [
@@ -11,7 +11,7 @@ interface IProps {
       heading?: string;
       text?: string;
       image?: string;
-      customElement?: React.ReactNode
+      customElement?: React.ReactNode;
     },
   ];
   backgroundColor?: string;
@@ -21,11 +21,11 @@ interface IProps {
 }
 
 const Onboarding: FC<IProps> = ({
-  data = [{heading: 'Heading', image: '', customElement: null }],
+  data = [{heading: 'Heading', image: '', customElement: null}],
   slideButtons = true,
   statusBar = true,
-    backgroundColor ='red',
-    _getStarted
+  backgroundColor = 'red',
+  _getStarted,
 }) => {
   const [activeItem, setActiveItem] = useState<number>(0);
   const refFlatList = useRef<any>();
@@ -62,13 +62,14 @@ const Onboarding: FC<IProps> = ({
         data={data}
       />
       {slideButtons && (
-          <SlideButtonsContainer>
-            <SlideButtons
-                _navigateToPage={_scrollToIndex}
-                numberOfSlides={data.length}
-                activeSlide={activeItem}
-                _getStarted={_getStarted}/>
-          </SlideButtonsContainer>
+        <SlideButtonsContainer>
+          <SlideButtons
+            _navigateToPage={_scrollToIndex}
+            numberOfSlides={data.length}
+            activeSlide={activeItem}
+            _getStarted={_getStarted}
+          />
+        </SlideButtonsContainer>
       )}
     </Container>
   );

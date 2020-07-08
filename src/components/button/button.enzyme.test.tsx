@@ -17,13 +17,13 @@
  */
 import 'jsdom-global/register';
 import React from 'react';
-import { mount } from 'enzyme';
+import {mount} from 'enzyme';
 import Button from '.';
-import {Text, TouchableOpacity, View} from "react-native";
+import {Text, TouchableOpacity, View} from 'react-native';
 
 describe('Component tested with airbnb enzyme', () => {
-    test('App mount with enzyme', () => {
-        const wrapper = mount(<Button />);
-        expect(wrapper.find(TouchableOpacity).length).toEqual(1);
-    });
+  test('App mount with enzyme', () => {
+    const wrapper = mount(<Button />);
+    expect(wrapper.find(TouchableOpacity).length).toEqual(1);
+  });
 });

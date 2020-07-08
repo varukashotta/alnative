@@ -14,14 +14,13 @@ interface IProps {
   activeSlide: number;
   _navigateToPage: (param: string) => void;
   _getStarted: () => void;
-
 }
 
 const SlideButtons: FC<IProps> = ({
   numberOfSlides,
   activeSlide,
   _navigateToPage,
-    _getStarted
+  _getStarted,
 }) => {
   const renderButtons = (numberSlides) => {
     let renderedButtons: any[] = [];
@@ -46,7 +45,9 @@ const SlideButtons: FC<IProps> = ({
         </Fragment>
       ) : (
         <GetStarted>
-          <GetStartedText onPress={() => _getStarted()}>Get Started</GetStartedText>
+          <GetStartedText onPress={() => _getStarted()}>
+            Get Started
+          </GetStartedText>
         </GetStarted>
       )}
     </Container>

@@ -3,11 +3,11 @@ import {Dimensions} from 'react-native';
 import {heightPercentageToDP, widthPercentageToDP} from '../../utils';
 
 interface IProps {
-    backgroundColor: string;
+  backgroundColor: string;
 }
 export const Container = styled.View`
   flex: 1;
-  background: ${(props:IProps) => props.backgroundColor};
+  background: ${(props: IProps) => props.backgroundColor};
   width: ${Dimensions.get('window').width}px;
   position: relative;
   height: 100%;
