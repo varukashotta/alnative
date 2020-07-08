@@ -24,7 +24,7 @@ const Onboarding: FC<IProps> = ({
   data = [{heading: 'Heading', image: '', customElement: null }],
   slideButtons = true,
   statusBar = true,
-    backgroundColor ='#fff',
+    backgroundColor ='red',
     _getStarted
 }) => {
   const [activeItem, setActiveItem] = useState<number>(0);
@@ -56,7 +56,7 @@ const Onboarding: FC<IProps> = ({
         showsHorizontalScrollIndicator={false}
         ref={refFlatList}
         renderItem={({item}) => (
-          <Slide item={item} />
+          <Slide backgroundColor={backgroundColor} item={item} />
         )}
         pagingEnabled={true}
         data={data}

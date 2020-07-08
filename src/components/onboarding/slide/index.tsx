@@ -14,22 +14,20 @@ interface IProps {
         image?: string;
         customElement?: React.ReactNode
     };
-    headerStyles?: {};
+    backgroundColor: string
 }
 
 // TODO Enable dynamic font props
 
 const Slide: FC<IProps> = ({
-                               item: {heading, text, image, customElement = null},
-                               headerStyles,
-
+                               item: {heading, text, image, customElement = null, backgroundColor= '#fff'}
                            }) => {
     return (
-        <Container>
+        <Container backgroundColor={backgroundColor}>
             {customElement ? customElement : <Fragment>
                 {image && <Image source={{uri: image}}/>}
                 <ContentWrapper>
-                    {heading && <Heading style={headerStyles}>{heading}</Heading>}
+                    {heading && <Heading>{heading}</Heading>}
                     {text && <Text>{text}</Text>}
                 </ContentWrapper>
             </Fragment>}
