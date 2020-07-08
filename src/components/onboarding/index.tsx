@@ -10,12 +10,13 @@ interface IProps {
     {
       heading?: string;
       text?: string;
-      image: string;
-      customElement: React.ReactNode
+      image?: string;
+      customElement?: React.ReactNode
     },
   ];
+  backgroundColor?: string;
   statusBar?: boolean;
-  slideButtons: boolean;
+  slideButtons?: boolean;
   _getStarted: () => void;
 }
 
@@ -23,6 +24,7 @@ const Onboarding: FC<IProps> = ({
   data = [{heading: 'Heading', image: '', customElement: null }],
   slideButtons = true,
   statusBar = true,
+    backgroundColor ='#fff',
     _getStarted
 }) => {
   const [activeItem, setActiveItem] = useState<number>(0);
@@ -45,7 +47,7 @@ const Onboarding: FC<IProps> = ({
   };
 
   return (
-    <Container>
+    <Container backgroundColor={backgroundColor}>
       <StatusBar hidden={statusBar} />
       <FlatList
         keyExtractor={(_item, index) => index.toString()}
