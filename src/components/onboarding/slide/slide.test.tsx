@@ -15,7 +15,7 @@ describe('Slide Component', () => {
           image: '',
           customElement: null,
         }}
-        headerStyles={''}
+        backgroundColor={'#fff'}
       />,
     );
   });
@@ -30,10 +30,6 @@ describe('Slide Component', () => {
 
   it('should have container element', () => {
     expect(wrapper.find(Container)).toBeDefined();
-  });
-
-  it('should have have headerStyles prop', () => {
-    expect(wrapper.prop('headerStyles')).toBeDefined();
   });
 
   describe('item prop', () => {

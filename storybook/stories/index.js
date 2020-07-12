@@ -7,10 +7,12 @@ import { linkTo } from '@storybook/addon-links';
 
 import Onboarding from '../../src/components/onboarding'
 
-// import Button from './Button';
 import CenterView from './CenterView';
 import Welcome from './Welcome';
 import {onboardingData} from "./generator";
+import Navigation from "../../src/components/navigation";
+import {bottomLinksIP, StackScreensIP} from "../../src/components/navigation/screens";
+import NavDemo from "../../demo/navigation";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -27,10 +29,15 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 //     </Button>
 //   ));
 
-console.log(onboardingData());
 
 storiesOf('Onboarding', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('default', () => (
         <Onboarding data={onboardingData()} slideButtons={true}/>
     ))
+
+
+
+storiesOf('Navigation', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('default', () => <NavDemo/>)

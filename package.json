@@ -29,9 +29,17 @@
     "postbuild": "yarn run copy-files"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.7.0",
+    "@react-navigation/native": "^5.6.1",
+    "@react-navigation/stack": "^5.6.2",
     "faker": "^4.1.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.7",
+    "react-native-screens": "^2.9.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
@@ -70,12 +78,18 @@
     "prettier": "^2.0.5",
     "react-dom": "16.11.0",
     "react-test-renderer": "16.11.0",
+    "typedoc": "^0.17.8",
     "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native",
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/fileMock.js"
+    },
     "setupFilesAfterEnv": [
-      "<rootDir>setup-tests.js"
+      "<rootDir>setup-tests.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
     ],
     "roots": [
       "./"

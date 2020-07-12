@@ -26,16 +26,16 @@ describe('Onboarding component', () => {
 
     slider = wrapper.find(FlatList);
 
-    const navigate = jest.fn();
 
     slide = (
       <Slide
-        _getStarted={jest.fn()}
-        _navigateToPage={navigate}
-        item={{}}
-        showButtons={true}
-        numberOfSlides={3}
-        activeSlide={1}
+          item={{
+            heading: 'Heading',
+            text: 'This is sub text',
+            image: '',
+            customElement: null,
+          }}
+          backgroundColor={'#fff'}
       />
     );
 
@@ -44,26 +44,6 @@ describe('Onboarding component', () => {
 
   it('should render without issues', () => {
     expect(wrapper.length).toBe(1);
-  });
-
-  it('should have prop navigateToProps', () => {
-    expect(slideShallow.prop('_navigateToPage')).toBeDefined();
-  });
-
-  it('should have prop navigateToProps as function', () => {
-    expect(
-      typeof slideShallow.prop('_navigateToPage') === 'function',
-    ).toBeTruthy();
-  });
-
-  describe('Get started button', () => {
-    it('should have a getStarted prop', () => {
-      expect(wrapper.prop('_getStarted')).toBeDefined();
-    });
-
-    it('should have a getStarted prop to be typeof function', () => {
-      expect(typeof wrapper.prop('_getStarted') === 'function').toBeTruthy();
-    });
   });
 
   it('should have Statusbar prop', () => {
@@ -112,14 +92,6 @@ describe('Onboarding component', () => {
         .filter((item) => 'text' in item && typeof item.heading === 'string')
         .length,
     ).toBeGreaterThanOrEqual(wrapper.prop('data').length);
-  });
-
-  it('should have numberOfSlides props', () => {
-    expect(slideShallow.prop('numberOfSlides')).toBeDefined();
-  });
-
-  it('should have activeSlide props', () => {
-    expect(slideShallow.prop('activeSlide')).toBeDefined();
   });
 
   describe('Slider Component Capabilities', () => {
@@ -182,14 +154,5 @@ describe('Onboarding component', () => {
       ).toBeTruthy();
     });
 
-    it('should have a prop showButtons', () => {
-      expect(slideShallow.prop('showButtons')).toBeDefined();
-    });
-
-    it('should have a prop showButtons that is of boolean type', () => {
-      expect(
-        typeof slideShallow.prop('showButtons') === 'boolean',
-      ).toBeTruthy();
-    });
   });
 });
