@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Onboarding component should match snapshot 1`] = `
+<View
+  backgroundColor="red"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "red",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "heading": "Heading",
+          "text": "Content",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={true}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsHorizontalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          backgroundColor="red"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "red",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "height": "100%",
+                "position": "relative",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "alignSelf": "center",
+                  "justifyContent": "center",
+                  "paddingBottom": 30,
+                  "paddingLeft": 30,
+                  "paddingRight": 30,
+                  "paddingTop": 30,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 52.5,
+                    "marginVertical": 37.5,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Heading
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "grey",
+                    "fontSize": 25.5,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Content
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "width": 750,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "lightseagreen",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingVertical": 22.5,
+            },
+          ]
+        }
+      >
+        <Text
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#fff",
+                "fontSize": 30,
+                "fontWeight": "bold",
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Get Started
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

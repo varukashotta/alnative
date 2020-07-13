@@ -39,7 +39,6 @@ const Onboarding: FC<IProps> = ({
   };
 
   const _scrollToIndex = (e) => {
-    console.log(activeItem + 1);
     return refFlatList.current.scrollToIndex({
       animated: true,
       index: e === '-' ? activeItem - 1 : activeItem + 1,

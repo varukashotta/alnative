@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1594533218415" clover="3.2.0">
-  <project timestamp="1594533218415" name="All files">
-    <metrics statements="61" coveredstatements="47" conditionals="29" coveredconditionals="14" methods="20" coveredmethods="13" elements="110" coveredelements="74" complexity="0" loc="61" ncloc="61" packages="5" files="8" classes="8"/>
+<coverage generated="1594558104855" clover="3.2.0">
+  <project timestamp="1594558104855" name="All files">
+    <metrics statements="91" coveredstatements="74" conditionals="39" coveredconditionals="24" methods="32" coveredmethods="22" elements="162" coveredelements="120" complexity="0" loc="91" ncloc="91" packages="7" files="11" classes="11"/>
     <package name="CL-React-Native">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="/Users/alka/Desktop/CL-React-Native/App.tsx">
@@ -11,29 +11,74 @@
         <line num="79" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="CL-React-Native.demo">
+      <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+      <file name="navigation.tsx" path="/Users/alka/Desktop/CL-React-Native/demo/navigation.tsx">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="CL-React-Native.src.components.navigation">
+      <metrics statements="23" coveredstatements="23" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="7"/>
+      <file name="index.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/navigation/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+      </file>
+      <file name="screens.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/navigation/screens.tsx">
+        <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="9" methods="6" coveredmethods="6"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="38" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="75" count="3" type="stmt"/>
+        <line num="76" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="77" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="3" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="3" type="stmt"/>
+      </file>
+    </package>
     <package name="CL-React-Native.src.components.onboarding">
       <metrics statements="16" coveredstatements="10" conditionals="8" coveredconditionals="3" methods="6" coveredmethods="4"/>
       <file name="index.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/onboarding/index.tsx">
         <metrics statements="14" coveredstatements="8" conditionals="8" coveredconditionals="3" methods="5" coveredmethods="3"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="30" count="22" type="stmt"/>
-        <line num="31" count="22" type="stmt"/>
-        <line num="32" count="22" type="stmt"/>
+        <line num="30" count="24" type="stmt"/>
+        <line num="31" count="24" type="stmt"/>
+        <line num="32" count="24" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="41" count="22" type="stmt"/>
+        <line num="41" count="24" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="49" count="22" type="stmt"/>
-        <line num="53" count="22" type="stmt"/>
-        <line num="59" count="22" type="stmt"/>
+        <line num="49" count="24" type="stmt"/>
+        <line num="53" count="24" type="stmt"/>
+        <line num="59" count="24" type="stmt"/>
       </file>
       <file name="onboardingStyles.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/onboarding/onboardingStyles.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="22" type="stmt"/>
+        <line num="7" count="24" type="stmt"/>
       </file>
     </package>
     <package name="CL-React-Native.src.components.onboarding.slide">
@@ -41,12 +86,12 @@
       <file name="index.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/onboarding/slide/index.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="10" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="20" count="55" type="stmt"/>
+        <line num="20" count="58" type="stmt"/>
       </file>
       <file name="slide.styles.ts" path="/Users/alka/Desktop/CL-React-Native/src/components/onboarding/slide/slide.styles.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="10" count="55" type="stmt"/>
+        <line num="10" count="58" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
@@ -59,12 +104,12 @@
       <file name="index.tsx" path="/Users/alka/Desktop/CL-React-Native/src/components/onboarding/slideButtons/index.tsx">
         <metrics statements="10" coveredstatements="3" conditionals="4" coveredconditionals="1" methods="5" coveredmethods="1"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="25" count="36" type="stmt"/>
+        <line num="25" count="38" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="34" count="36" type="stmt"/>
+        <line num="34" count="38" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
@@ -82,22 +127,22 @@
       </file>
     </package>
     <package name="CL-React-Native.src.components.utils">
-      <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
       <file name="index.ts" path="/Users/alka/Desktop/CL-React-Native/src/components/utils/index.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="2" methods="5" coveredmethods="5"/>
-        <line num="3" count="4" type="stmt"/>
+        <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
+        <line num="3" count="5" type="stmt"/>
         <line num="4" count="14" type="stmt"/>
         <line num="6" count="14" type="stmt"/>
         <line num="7" count="14" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
         <line num="11" count="5" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
         <line num="14" count="5" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="21" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="5" type="cond" truecount="1" falsecount="0"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
       </file>
