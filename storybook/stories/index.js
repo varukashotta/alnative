@@ -13,6 +13,8 @@ import {onboardingData} from "./generator";
 import Navigation from "../../src/components/navigation";
 import {bottomLinksIP, StackScreensIP} from "../../src/components/navigation/screens";
 import NavDemo from "../../demo/navigation";
+import UserProfileDemo from "../../demo/userProfile";
+import UserSettings from "../../src/components/userSettings";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -36,8 +38,14 @@ storiesOf('Onboarding', module)
         <Onboarding data={onboardingData()} slideButtons={true}/>
     ))
 
-
+storiesOf('UserSettings', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('default', () => <UserSettings/>)
 
 storiesOf('Navigation', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('default', () => <NavDemo/>)
+
+storiesOf('UserProfile', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('default', () => <UserProfileDemo/>)
