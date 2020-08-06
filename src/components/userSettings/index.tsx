@@ -1,69 +1,77 @@
 import * as React from "react";
-import {FC} from "react";
+import {FC, useEffect, useState} from "react";
 import {View} from "react-native";
-import Font, {h4, h5, p} from "../utils/fonts";
-import {Heading, ProfileButton, ProfileText, SectionContainer, SettingsItem} from "./userSettingsStyles";
-import {green} from "../utils/colors";
+import Font, {h4, h5, p} from "../utils/generic/fonts";
+import {Heading, ProfileButton, ProfileIcon, ProfileText, SectionContainer, SettingsItem} from "./userSettingsStyles";
+import {green} from "../utils/generic/colors";
 import {SvgXml} from 'react-native-svg';
-import userIcon from './icons/user.svg';
-import {widthPercentageToDP} from "../utils";
+// @ts-ignore
+import userIcon from "./icons/user.svg";
+import {Layout} from "../utils";
 
-interface SectionProps {
-    props: any
-}
 
-const DATA = [
+const defaultData = [
     {
         title: "Account Settings",
-        data: ["Personal Information", "Notifications", "Risotto"]
+        data: [{title: "Personal Information"}, {title: "Notifications"}]
     },
     {
-        title: "Sides",
-        data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-    },
-    {
-        title: "Drinks",
-        data: ["Water", "Coke", "Beer"]
-    },
-    {
-        title: "Desserts",
-        data: ["Cheese Cake", "Ice Cream"]
-    },
-    {
-        title: "Sidested",
-        data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-    },
+        title: "Auth",
+        data: [{title: "Change Password"}, {title: "Logout"}]
+    }
 ];
 
-interface ItemProps{
+interface ItemProps {
     title: string;
     icon?: string;
+    _itemPressed: (title) => void;
 }
-const Item = ({title, icon}:ItemProps) => (
-    <SettingsItem>
+
+const Item = ({title, icon, _itemPressed}: ItemProps) => (
+    <SettingsItem onPress={() => _itemPressed(title)}>
         <Font size={h5}>{title}</Font>
-        {icon && <SvgXml width={widthPercentageToDP(5)} height={widthPercentageToDP(5)} xml={icon}/> }
+        {icon && <SvgXml width={Layout.widthPercentageToDP(5)} height={Layout.widthPercentageToDP(5)} xml={icon}/>}
     </SettingsItem>
 );
 
 interface SectionProps {
+    firstName: string;
+    _profileLink: () => void;
+
+    sectionsData?: any[];
+    _itemPressed: (e) => void;
 }
 
-const UserSettings: FC<SectionProps> = () => {
+const UserSettings: FC<SectionProps> = ({firstName = "FirstName", sectionsData, _profileLink, _itemPressed}) => {
+    const [updatedData, setUpdatedData] = useState(defaultData);
+
+    const updateData = () => {
+        if (sectionsData) {
+            sectionsData.map((item) => {
+                return defaultData.splice(1, 0, item);
+            });
+            setUpdatedData(defaultData);
+        }
+    }
+
+    useEffect(() => {
+        updateData()
+    }, [])
+
     return <View style={{flex: 1}}>
-        <ProfileButton>
-            <View style={{height: 60, flex: 2}}>
-                <SvgXml width="50" height="50" xml={userIcon}/>
-            </View>
+        <ProfileButton onPress={_profileLink}>
+            <ProfileIcon>
+                <SvgXml width={Layout.widthPercentageToDP(12)} height={Layout.widthPercentageToDP(12)} xml={userIcon}/>
+            </ProfileIcon>
             <ProfileText>
-                <Font size={h4}>First Name</Font>
+                <Font size={h4}>{firstName}</Font>
                 <Font size={p} color={green}>Show Profile</Font>
             </ProfileText>
         </ProfileButton>
         <SectionContainer
-            sections={DATA}
+            sections={updatedData}
             keyExtractor={(item: any, index) => item + index}
-            renderItem={({item}) => <Item title={item}/>}
+            renderItem={({item}: { item: any }) => <Item _itemPressed={(e) => _itemPressed(e)} title={item.title}/>}
             renderSectionHeader={({section: {title}}) => (
                 <Heading><Font size={p}>{title} </Font></Heading>
             )}

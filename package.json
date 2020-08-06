@@ -26,7 +26,8 @@
     "prebuild": "yarn clean",
     "build": "tsc --build \"./tsconfig.json\"",
     "copy-files": "copyfiles -u 1 src/style/base.css lib/",
-    "postbuild": "yarn run copy-files"
+    "postbuild": "yarn run copy-files",
+    "wadeda": "concurrently \"yarn storybook\" \"yarn test --watch\" \"yarn ios\""
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -34,7 +35,9 @@
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.6.2",
     "babel-plugin-inline-import": "^3.0.0",
+    "concurrently": "^5.2.0",
     "faker": "^4.1.0",
+    "formik": "^2.1.5",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-fast-image": "^8.3.2",
@@ -44,7 +47,8 @@
     "react-native-screens": "^2.9.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-transformer": "^0.14.3",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

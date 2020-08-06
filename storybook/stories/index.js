@@ -11,10 +11,11 @@ import CenterView from './CenterView';
 import Welcome from './Welcome';
 import {onboardingData} from "./generator";
 import Navigation from "../../src/components/navigation";
-import {bottomLinksIP, StackScreensIP} from "../../src/components/navigation/screens";
 import NavDemo from "../../demo/navigation";
 import UserProfileDemo from "../../demo/userProfile";
-import UserSettings from "../../src/components/userSettings";
+import UserSettingsDemo from "../../demo/userSettings";
+import SignUpDemo from "../../demo/signUpDemo";
+import CountryListDemo from "../../demo/countryListDemo";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -31,6 +32,17 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 //     </Button>
 //   ));
 
+storiesOf('CountryList', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('default', () => (
+        <CountryListDemo/>
+    ))
+
+storiesOf('SignUpForm', module)
+    .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+    .add('default', () => (
+        <SignUpDemo/>
+    ))
 
 storiesOf('Onboarding', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
@@ -40,7 +52,7 @@ storiesOf('Onboarding', module)
 
 storiesOf('UserSettings', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-    .add('default', () => <UserSettings/>)
+    .add('default', () => <UserSettingsDemo/>)
 
 storiesOf('Navigation', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)

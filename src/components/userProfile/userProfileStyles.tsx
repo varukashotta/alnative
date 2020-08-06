@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {heightPercentageToDP} from "../utils";
+import {Layout} from "../utils";
 
 export const Container = styled.ScrollView`
     flex: 1;
@@ -18,9 +18,9 @@ export const ImageContainer = styled.View`
 `
 
 export const CurvedTop = styled.View`
-    borderTopLeftRadius: ${heightPercentageToDP(1)}px;
-    borderTopRightRadius: ${heightPercentageToDP(1)}px;
-    margin-top: -${heightPercentageToDP(3)}px;
+    borderTopLeftRadius: ${Layout.widthPercentageToDP(1)}px;
+    borderTopRightRadius: ${Layout.widthPercentageToDP(1)}px;
+    margin-top: -${Layout.widthPercentageToDP(3)}px;
     shadow-color: #000;
     shadow-offset: {
     width: 0,
@@ -33,9 +33,9 @@ export const CurvedTop = styled.View`
 export const DataContainer = styled(CurvedTop)`
     background: #fff;
     flex: .65;
-    padding: ${heightPercentageToDP(4)}px;
+    padding: ${Layout.widthPercentageToDP(4)}px;
 `
 
 export const Title = styled.Text`
-    font-size: ${heightPercentageToDP(4)}px;
+    font-size: ${Layout.widthPercentageToDP(4)}px;
 `

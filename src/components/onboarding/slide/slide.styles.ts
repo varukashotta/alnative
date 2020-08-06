@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
-import {heightPercentageToDP, widthPercentageToDP} from '../../utils';
+import {Layout} from '../../utils';
 
 interface IProps {
   backgroundColor: string;
@@ -21,9 +21,9 @@ export const SlideButtonsContainer = styled.View`
 `;
 
 export const Heading = styled.Text`
-  font-size: ${widthPercentageToDP(7)}px;
+  font-size: ${Layout.widthPercentageToDP(7)}px;
   text-align: center;
-  margin-vertical: ${widthPercentageToDP(5)}px;
+  margin-vertical: ${Layout.widthPercentageToDP(5)}px;
 }
 `;
 
@@ -31,16 +31,16 @@ export const ContentWrapper = styled.View`
   align-self: center;
   align-content: center;
   justify-content: center;
-  padding: ${widthPercentageToDP(4)}px;
+  padding: ${Layout.widthPercentageToDP(4)}px;
 `;
 
 export const Text = styled.Text`
-  font-size: ${widthPercentageToDP(3.4)}px;
+  font-size: ${Layout.widthPercentageToDP(3.4)}px;
   color: grey;
   text-align: center;
 `;
 
 export const Image = styled.ImageBackground`
-  height: ${heightPercentageToDP(50)}px;
+  height: ${Layout.widthPercentageToDP(50)}px;
   width: 100%;
 `;

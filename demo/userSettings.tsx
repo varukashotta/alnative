@@ -1,6 +1,11 @@
 import * as React from "react";
 import UserSettings from "../src/components/userSettings";
 
-const UserSetting = () => <UserSettings props={{}}/>
+const _test = (e) => {
+    console.log(e)
+}
 
-export default UserSetting;
+const UserSettingsDemo = () => <UserSettings firstName={'Al'} _profileLink={() => console.log('test')}
+                                             _itemPressed={_test}/>
+
+export default UserSettingsDemo;

@@ -1,7 +1,7 @@
 import * as React from "react";
-import {heightPercentageToDP} from "./index";
 import {Text} from 'react-native';
 import {FC} from "react";
+import {heightPercentageToDP} from "../layout";
 
 export const h1 = 6;
 export const h2 = 5;
