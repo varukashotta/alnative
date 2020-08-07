@@ -13,8 +13,6 @@ describe('User Profile', () => {
   });
 
   it('should have container element', () => {
-    expect(wrapper.find('Styled(ScrollViewMock)')).toHaveLength(1)
-  })
-
-
+    expect(wrapper.find('Styled(ScrollViewMock)')).toHaveLength(1);
+  });
 });

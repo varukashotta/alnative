@@ -1,5 +1,3 @@
-import UserIcon from './user.svg'
+import UserIcon from './user.svg';
 
-export {
-    UserIcon
-}
+export {UserIcon};

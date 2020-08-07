@@ -1,15 +1,15 @@
-import {mount} from "enzyme";
-import * as React from "react";
+import {mount} from 'enzyme';
+import * as React from 'react';
 import SignUpDemo from '../../../demo/signUpDemo';
 
 describe('SignUp', () => {
-    let wrapper;
+  let wrapper;
 
-    beforeEach(() => {
-        wrapper = mount(<SignUpDemo/>)
-    })
+  beforeEach(() => {
+    wrapper = mount(<SignUpDemo />);
+  });
 
-    it('should exists', function () {
-        expect(wrapper).toBeDefined()
-    });
-})
+  it('should exists', function () {
+    expect(wrapper).toBeDefined();
+  });
+});

@@ -1,21 +1,20 @@
 import styled from 'styled-components/native';
-import {Layout} from "../utils";
+import {Layout} from '../utils';
 
 export const Container = styled.ScrollView`
-    flex: 1;
-    background: #fff;
-
-`
+  flex: 1;
+  background: #fff;
+`;
 export const MainContainer = styled.View`
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
 
 export const ImageContainer = styled.View`
-    flex: .35;
-    background: #0061d5;
-`
+  flex: 0.35;
+  background: #0061d5;
+`;
 
 export const CurvedTop = styled.View`
     borderTopLeftRadius: ${Layout.widthPercentageToDP(1)}px;
@@ -28,14 +27,14 @@ export const CurvedTop = styled.View`
     };
     shadow-opacity: 0.25;
     shadow-radius: 3.84px;
-    elevation: 5;`
+    elevation: 5;`;
 
 export const DataContainer = styled(CurvedTop)`
-    background: #fff;
-    flex: .65;
-    padding: ${Layout.widthPercentageToDP(4)}px;
-`
+  background: #fff;
+  flex: 0.65;
+  padding: ${Layout.widthPercentageToDP(4)}px;
+`;
 
 export const Title = styled.Text`
-    font-size: ${Layout.widthPercentageToDP(4)}px;
-`
+  font-size: ${Layout.widthPercentageToDP(4)}px;
+`;

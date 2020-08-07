@@ -1,8 +1,12 @@
-import React from "react";
-import {View, Text} from "react-native";
+import React from 'react';
+import {View, Text} from 'react-native';
 
 const Select = () => {
-    return <View><Text>Test</Text></View>
-}
+  return (
+    <View>
+      <Text>Test</Text>
+    </View>;
+  );
+};
 
-export default Select
+export default Select;
