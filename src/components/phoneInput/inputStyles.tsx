@@ -11,13 +11,13 @@ export const Container = styled.View``;
 export const Input = styled.View`
   borderRadius: ${Layout.widthPercentageToDP(1)}px;
   border-width: 1px;
-  borderColor: #717171;
-  margin: ${Layout.widthPercentageToDP(1)}px;
+  borderColor: #a6a6a6;
+  marginBottom: ${Layout.widthPercentageToDP(2)}px;
 `;
 
 export const Cell = styled.View<IProps>`
     borderBottomWidth: ${props => props.border ? '1px' : 0};
-    borderBottomColor: ${props => props.border ? '#717171' : 0};
+    borderBottomColor: ${props => props.border ? '#a6a6a6' : 0};
     height: ${Layout.widthPercentageToDP(12.5)}px;
     justifyContent: center;
     paddingHorizontal: ${Layout.widthPercentageToDP(3)}px;
