@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {FC, useState} from 'react';
-import Font, {h4, h6} from '../utils/generic/fonts';
+import Font, {h3, h6} from '../utils/generic/fonts';
 import {Container, Header, HR, Logo, OptionHR} from './authStyles';
 import PhoneInput from '../phoneInput';
 import {Layout} from "../utils";
 import {MEDIUM} from "../utils/layout/spacing";
-import {StyleSheet} from "react-native";
+import {StyleSheet, View} from "react-native";
 import AuthButtons from "./buttons";
 
 interface IProps {
@@ -13,16 +13,15 @@ interface IProps {
     companyLogo: React.ReactNode;
 }
 
-
-
-const SignUpForm: FC<IProps> = ({companyName = 'Company', companyLogo}) => {
+const AuthForm: FC<IProps> = ({companyName = 'Company', companyLogo}) => {
     const [login, setLogin] = useState(false);
 
     return (
         <Container>
             <Header>
-                <Logo>{companyLogo}</Logo>
-                <Font size={h4} style={{fontWeight: '500'}}>Welcome to {companyName}</Font>
+                {!login ? <View><Logo>{companyLogo}</Logo>
+                    <Font size={h3} style={{fontWeight: '500'}}>Welcome to {companyName}</Font>
+                </View> : <Font size={h3} style={{fontWeight: '500'}}>Log in</Font>}
             </Header>
             <PhoneInput/>
             <OptionHR>
@@ -31,8 +30,8 @@ const SignUpForm: FC<IProps> = ({companyName = 'Company', companyLogo}) => {
                 <HR/>
             </OptionHR>
             <AuthButtons/>
-            <Font size={h6}>
-                {!login ? 'Already have an account?' : 'New to ' + companyName + '? '}<Font size={h6} onPress={() => setLogin(login)}>{!login ? ' Login' : ' Sign up'}</Font>
+            <Font size={2.3}>
+                {!login ? 'Already have an account? ' : 'New to ' + companyName + '? '}<Font style={styles.underline} size={2.2} onPress={() => setLogin(!login)}>{!login ? 'Login' : 'Sign up'}</Font>
             </Font>
         </Container>
     );
@@ -41,7 +40,10 @@ const SignUpForm: FC<IProps> = ({companyName = 'Company', companyLogo}) => {
 const styles = StyleSheet.create({
     hrText: {
         padding: Layout.widthPercentageToDP(MEDIUM),
+    },
+    underline: {
+        textDecorationLine: 'underline'
     }
 })
 
-export default SignUpForm;
+export default AuthForm;

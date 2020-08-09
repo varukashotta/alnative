@@ -13,6 +13,6 @@ export const Container = styled.TouchableOpacity<IProps>`
     borderColor: ${(props:IProps) => props.borderColor || props.bgColor};
     borderRadius: ${Layout.widthPercentageToDP(2.5)}px;
     backgroundColor: ${(props:IProps) => props.bgColor};
-    paddingVertical:  ${(props:IProps) => Layout.widthPercentageToDP(props.paddingVertical || 3.8)}px;
+    paddingVertical:  ${(props:IProps) => Layout.widthPercentageToDP(props.paddingVertical || 4.2)}px;
     paddingHorizontal: ${Layout.widthPercentageToDP(3)}px;
 `

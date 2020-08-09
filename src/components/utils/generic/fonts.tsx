@@ -5,7 +5,7 @@ import {heightPercentageToDP} from '../layout';
 
 export const h1 = 6;
 export const h2 = 5;
-export const h3 = 4;
+export const h3 = 3.6;
 export const h4 = 3;
 export const h5 = 2;
 export const h6 = 1.8;
@@ -25,7 +25,7 @@ const Font: FC<FontProps> = ({
 }) => (
   <Text
     {...props}
-    style={[{fontSize: heightPercentageToDP(size), color}, style]}>
+    style={[{fontSize: heightPercentageToDP(size), color, fontFamily: 'CircularStd-Book'}, style]}>
     {children}
   </Text>
 );

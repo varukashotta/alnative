@@ -1,12 +1,12 @@
 import {mount} from 'enzyme';
 import * as React from 'react';
-import SignUpDemo from '../../../demo/signUpDemo';
+import AuthDemo from '../../../demo/authDemo';
 
 describe('SignUp', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<SignUpDemo />);
+    wrapper = mount(<AuthDemo />);
   });
 
   it('should exists', function () {

@@ -14,7 +14,7 @@ import Navigation from "../../src/components/navigation";
 import NavDemo from "../../demo/navigation";
 import UserProfileDemo from "../../demo/userProfile";
 import UserSettingsDemo from "../../demo/userSettings";
-import SignUpDemo from "../../demo/signUpDemo";
+import AuthDemo from "../../demo/authDemo";
 import CountryListDemo from "../../demo/countryListDemo";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
@@ -41,7 +41,7 @@ storiesOf('CountryList', module)
 storiesOf('SignUpForm', module)
     .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
     .add('default', () => (
-        <SignUpDemo/>
+        <AuthDemo/>
     ))
 
 storiesOf('Onboarding', module)

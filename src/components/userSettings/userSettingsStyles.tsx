@@ -18,8 +18,8 @@ export const ProfileButton = styled.TouchableOpacity`
   background: #fff;
   padding-horizontal: ${spacing(MEDIUM)}px;
   padding-vertical: ${spacing(MEDIUM)}px;
-  borderbottomcolor: ${lightestGray};
-  borderbottomwidth: 1px;
+  borderBottomColor: ${lightestGray};
+  borderBottomWidth: 1px;
 `;
 export const ProfileText = styled.View`
   flex: 8;
@@ -32,8 +32,8 @@ export const Heading = styled.View`
   background: #fff;
 `;
 export const SettingsItem = styled.TouchableOpacity`
-  borderbottomcolor: ${lightestGray};
-  borderbottomwidth: 1px;
+  borderBottomColor: ${lightestGray};
+  borderBottomWidth: 1px;
   padding-vertical: ${spacing(MEDIUM)}px;
   flex-direction: row;
   display: flex;

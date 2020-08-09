@@ -46,30 +46,28 @@ const AuthButtons = () => {
     return <AuthOptions>
         {authMethods.map((auth) =>
             <AuthOption key={auth.key}>
-            <Button onPress={() => console.log('test')}
-                    title={auth.name}
-                    paddingVertical={2.9}
-                    color={'#484849'} borderColor={'#717171'}
-                    bgColor={'#fff'} customContent={<AuthButton>
-                <View style={{flex: 1}}>
-                    {
-                        auth.key !== 'apple' ?
-                            <SvgXml xml={auth.icon} height={Layout.widthPercentageToDP(4)}
-                                    width={Layout.widthPercentageToDP(4)}/> :
-                            <Apple source={require('./icon/company.png')} />
-                    }
-                </View>
-                <View style={{flex: 9}}>
-                <Font style={styles.text} size={h6}>{auth.name}</Font>
-                </View>
-            </AuthButton>}/>
-        </AuthOption>)}
+                <Button onPress={() => console.log('test')}
+                        title={auth.name}
+                        paddingVertical={3.7}
+                        color={'#484849'} borderColor={'#717171'}
+                        bgColor={'#fff'} customContent={<AuthButton>
+                    <View style={{flex: 2.7}}>
+                        {
+                            auth.key !== 'apple' ?
+                                <SvgXml xml={auth.icon} height={Layout.widthPercentageToDP(4)}
+                                        width={Layout.widthPercentageToDP(4)}/> :
+                                <Apple source={require('./icon/company.png')}/>
+                        }
+                    </View>
+                    <View style={{flex: 7.3}}>
+                        <Font style={styles.text} size={h6}>{auth.name}</Font>
+                    </View>
+                </AuthButton>}/>
+            </AuthOption>)}
     </AuthOptions>
 }
 
 const styles = StyleSheet.create({
-    text: {
-        textAlign: "center",
-    }
+    text: {}
 })
 export default AuthButtons

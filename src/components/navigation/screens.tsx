@@ -5,7 +5,7 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack';
-import {objectChecker} from '../utils';
+import {Misc} from '../utils';
 
 const Tab = createBottomTabNavigator();
 
@@ -118,7 +118,7 @@ interface BottomNavOptionsIP {
 const Screens = ({bottomLinks, stackedScreens}: BottomNavOptionsIP) => {
   return (
     <Stack.Navigator>
-      {bottomLinks && objectChecker(bottomLinks) && bottomScreen(bottomLinks)}
+      {bottomLinks && Misc.objectChecker(bottomLinks) && bottomScreen(bottomLinks)}
       {stackScreens(stackedScreens)}
     </Stack.Navigator>
   );
