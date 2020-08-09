@@ -4,4 +4,4 @@ export {default as UserProfile} from './userProfile';
 export {default as UserSettings} from './userSettings';
 export {default as CountryList} from './countryList';
 export {default as Button} from './button';
-export {Layout} from './utils';
+export {Layout, Colours, Fonts, Misc} from './utils';

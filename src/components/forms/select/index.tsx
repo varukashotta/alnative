@@ -5,7 +5,7 @@ const Select = () => {
   return (
     <View>
       <Text>Test</Text>
-    </View>;
+    </View>
   );
 };
 
