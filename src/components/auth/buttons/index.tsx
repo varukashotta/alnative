@@ -56,7 +56,7 @@ const AuthButtons = () => {
                             auth.key !== 'apple' ?
                                 <SvgXml xml={auth.icon} height={Layout.widthPercentageToDP(4)}
                                         width={Layout.widthPercentageToDP(4)}/> :
-                                <Apple source={require('./icon/company.png')}/>
+                                <Apple source={require('./company.png')}/>
                         }
                     </View>
                     <View style={{flex: 7.3}}>
