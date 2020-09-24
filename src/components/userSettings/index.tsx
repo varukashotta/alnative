@@ -13,7 +13,7 @@ import {
 import {green} from '../utils/generic/colors';
 import {SvgXml} from 'react-native-svg';
 // @ts-ignore
-import userIcon from './user.svg';
+const userIcon = require('./user.svg');
 import {Layout} from '../utils';
 
 
