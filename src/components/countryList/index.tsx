@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {FC, useState} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, View} from 'react-native';
 import Font, {h5} from '../utils/generic/fonts';
 import {Country} from './countryListStyles';
 // @ts-ignore
-const tick =  require('./tick.svg');
-import {SvgXml} from 'react-native-svg';
 import {Layout} from '../utils';
-
+import SvgTick from './SvgTick';
 const countriesData = require('./countryCodes.json');
 
 interface IProps {
@@ -31,11 +29,9 @@ const CountryList: FC<IProps> = ({onPress}) => {
             {item.name} ({item.dial_code})
           </Font>
           {selectedCountry === item.code && (
-            <SvgXml
-              height={Layout.widthPercentageToDP(5)}
-              width={Layout.widthPercentageToDP(5)}
-              xml={tick}
-            />
+              <View style={{height: Layout.widthPercentageToDP(5), width: Layout.widthPercentageToDP(5)}}>
+               <SvgTick/>
+              </View>
           )}
         </Country>
       )}

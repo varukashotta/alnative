@@ -1,17 +1,17 @@
 import React from 'react'
-import {Apple, AuthButton, AuthOption, AuthOptions} from "../authStyles";
+import {AuthButton, AuthOption, AuthOptions} from "../authStyles";
 import Button from "../../button";
 import Font, {h6} from "../../utils/generic/fonts";
-import {SvgXml} from "react-native-svg";
 import {Layout} from "../../utils";
 // @ts-ignore
-const mail = require('./mail.svg');
+import SvgMail from './icons/--native/Mail';
 // @ts-ignore
-const google = require('./google.svg');
+import SvgGoogle from './icons/--native/Google';
 // @ts-ignore
-const apple = require('./company.svg');
+import SvgApple from './icons/--native/Apple';
 // @ts-ignore
-const facebook = require('./facebook.svg');
+import SvgFacebook from './icons/--native/Facebook';
+
 import {StyleSheet, View} from "react-native";
 
 const authMethods = [
@@ -19,25 +19,25 @@ const authMethods = [
         name: 'Continue with Apple',
         url: 'apple',
         key: 'apple',
-        icon: apple,
+        icon: <SvgApple/>,
     },
     {
         name: 'Continue with email',
         url: '',
         key: 'email',
-        icon: mail
+        icon: <SvgMail/>
     },
     {
         name: 'Continue with Google',
         url: '',
         key: 'google',
-        icon: google
+        icon: <SvgGoogle />
     },
     {
         name: 'Continue with Facebook',
         url: '',
         key: 'facebook',
-        icon: facebook
+        icon: <SvgFacebook/>
     }
 ]
 
@@ -52,12 +52,12 @@ const AuthButtons = () => {
                         color={'#484849'} borderColor={'#717171'}
                         bgColor={'#fff'} customContent={<AuthButton>
                     <View style={{flex: 2.7}}>
-                        {
-                            auth.key !== 'apple' ?
-                                <SvgXml xml={auth.icon} height={Layout.widthPercentageToDP(4)}
-                                        width={Layout.widthPercentageToDP(4)}/> :
-                                <Apple source={require('./company.png')}/>
-                        }
+                        <View style={{height: Layout.widthPercentageToDP(4), width: Layout.widthPercentageToDP(4)}}>
+                            {
+                                    auth.icon
+
+                            }
+                        </View>
                     </View>
                     <View style={{flex: 7.3}}>
                         <Font style={styles.text} size={h6}>{auth.name}</Font>

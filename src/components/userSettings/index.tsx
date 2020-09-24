@@ -27,7 +27,7 @@ const defaultData = [
 
 interface ItemProps {
   title: string;
-  icon?: string;
+  icon?: React.ReactNode;
   _itemPressed: (title) => void;
 }
 

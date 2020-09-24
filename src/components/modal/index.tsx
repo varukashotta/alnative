@@ -1,9 +1,7 @@
 import React, {FC, ReactNode, useRef} from 'react';
 import {Container, Content, Header, Inner} from "./modalStyles";
 import {PanResponder, StyleSheet, TouchableOpacity, View} from "react-native";
-import {SvgXml} from "react-native-svg";
-// @ts-ignore
-const close = require('./close.svg');
+import SvgClose from './--native/Close';
 import {Layout} from "../utils";
 import Font from "../utils/generic/fonts";
 
@@ -54,8 +52,9 @@ const Modal: FC<IProps> = ({_closeModal, visible, children, headerTitle}) => {
                 <Header>
                     <TouchableOpacity onPress={() => _closeModal()}
                                       style={{flex: 1, paddingLeft: Layout.widthPercentageToDP(2)}}>
-                        <SvgXml xml={close} height={Layout.widthPercentageToDP(3)}
-                                width={Layout.widthPercentageToDP(3)}/>
+                        <View style={{width: Layout.widthPercentageToDP(3)}}>
+                            <SvgClose/>
+                        </View>
                     </TouchableOpacity>
                     <View style={{flex: 8}} {...panResponder.panHandlers}>
                         <Font size={2} style={styles.headerText}>

@@ -6,9 +6,7 @@ import {Formik} from "formik";
 import Button from "../button";
 import {Colours, Layout} from "../utils";
 import {MEDIUM} from "../utils/layout/spacing";
-import {SvgXml} from "react-native-svg";
-// @ts-ignore
-const down = require('./down-arrow.svg');
+import SvgDownArrow from './SvgDownArrow';
 import Modal from "../modal";
 import {CountryList} from "../index";
 
@@ -49,7 +47,9 @@ const PhoneInput = () => {
                                         <Font size={p} style={styles.placeholder}>Country/Region</Font>
                                         {chosenCountry()}
                                     </View>
-                                    <SvgXml xml={down} height={Layout.widthPercentageToDP(5)} width={Layout.widthPercentageToDP(4)} />
+                                    <View style={{width:Layout.widthPercentageToDP(5)}}>
+                                        <SvgDownArrow />
+                                    </View>
                                 </Row>
                             </Cell>
                             <Cell focus={focus === 'number'} onPress={() => setFocus('number')}>
