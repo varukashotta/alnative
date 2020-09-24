@@ -5,13 +5,13 @@ import Font, {h6} from "../../utils/generic/fonts";
 import {SvgXml} from "react-native-svg";
 import {Layout} from "../../utils";
 // @ts-ignore
-import mail from './icon/mail.svg';
+import mail from './mail.svg';
 // @ts-ignore
-import google from './icon/google.svg';
+import google from './google.svg';
 // @ts-ignore
-import apple from './icon/company.svg';
+import apple from './company.svg';
 // @ts-ignore
-import facebook from './icon/facebook.svg';
+import facebook from './facebook.svg';
 import {StyleSheet, View} from "react-native";
 
 const authMethods = [

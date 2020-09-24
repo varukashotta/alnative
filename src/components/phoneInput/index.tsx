@@ -8,7 +8,7 @@ import {Colours, Layout} from "../utils";
 import {MEDIUM} from "../utils/layout/spacing";
 import {SvgXml} from "react-native-svg";
 // @ts-ignore
-import down from './img/down-arrow.svg';
+import down from './down-arrow.svg';
 import Modal from "../modal";
 import {CountryList} from "../index";
 
