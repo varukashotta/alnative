@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 import Font, {h5} from '../utils/generic/fonts';
 import {Country} from './countryListStyles';
 // @ts-ignore
-import tick from './tick.svg';
+const tick =  require('./tick.svg');
 import {SvgXml} from 'react-native-svg';
 import {Layout} from '../utils';
 

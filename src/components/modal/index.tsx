@@ -3,7 +3,7 @@ import {Container, Content, Header, Inner} from "./modalStyles";
 import {PanResponder, StyleSheet, TouchableOpacity, View} from "react-native";
 import {SvgXml} from "react-native-svg";
 // @ts-ignore
-import close from './close.svg';
+const close = require('./close.svg');
 import {Layout} from "../utils";
 import Font from "../utils/generic/fonts";
 
