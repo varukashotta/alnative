@@ -11,11 +11,8 @@ import {
   SettingsItem,
 } from './userSettingsStyles';
 import {green} from '../utils/generic/colors';
-import {SvgXml} from 'react-native-svg';
-// @ts-ignore
-const userIcon = require('./user.svg');
 import {Layout} from '../utils';
-
+import SvgUser from './user'
 
 const defaultData = [
   {
@@ -38,11 +35,7 @@ const Item = ({title, icon, _itemPressed}: ItemProps) => (
   <SettingsItem onPress={() => _itemPressed(title)}>
     <Font size={h5}>{title}</Font>
     {icon && (
-      <SvgXml
-        width={Layout.widthPercentageToDP(5)}
-        height={Layout.widthPercentageToDP(5)}
-        xml={icon}
-      />
+        icon
     )}
   </SettingsItem>
 );
@@ -80,11 +73,9 @@ const UserSettings: FC<SectionProps> = ({
     <View style={{flex: 1}}>
       <ProfileButton onPress={_profileLink}>
         <ProfileIcon>
-          <SvgXml
-            width={Layout.widthPercentageToDP(12)}
-            height={Layout.widthPercentageToDP(12)}
-            xml={userIcon}
-          />
+          <View style={{width: Layout.widthPercentageToDP(12), height: Layout.widthPercentageToDP(12)}}>
+            <SvgUser />
+          </View>
         </ProfileIcon>
         <ProfileText>
           <Font size={h4}>{firstName}</Font>
